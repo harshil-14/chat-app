@@ -6,8 +6,10 @@ import {connectDb} from './lib/db.js'
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
+import {app,server} from "./lib/socket.js";
+
 dotenv.config();
-const app=express();
+// const app=express();
 
 const port=process.env.PORT;
 
@@ -30,7 +32,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(port, ()=>{
+server.listen(port, ()=>{
     console.log(`server running at http://localhost:${port}`)
     connectDb();
 })
